@@ -32,8 +32,10 @@ syn keyword pythonBuiltInFunction       setLoggerClass getLoggerClass basicConfi
 "syn keyword pythonBuiltInMethod         .getMessage .usesTime .formatTime .formatException .formatMessage
 
 " May want to add some type of regex at the end to match '(', but I've been having issues trying to accomplish this
-" This is probablyu going to break...
-syn match   pythonBuiltInMethod         /\.(?:format|nt)/
+" TODO: Use a more efficienty regex match
+" HELP: I need help here!
+" Don't judge me..  I wasn't able to get this to work any other way...  I need help
+syn match   pythonBuiltInMethod         /\.\(format\|getMessage\)/
 
 " formatStack was dfined inside of class Formatter
 syn keyword pythonBuiltInMethod         .formatStack
