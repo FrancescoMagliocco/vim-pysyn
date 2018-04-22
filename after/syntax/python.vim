@@ -34,8 +34,10 @@ syn keyword pythonBuiltInFunction       setLoggerClass getLoggerClass basicConfi
 " May want to add some type of regex at the end to match '(', but I've been having issues trying to accomplish this
 " TODO: Use a more efficienty regex match
 " HELP: I need help here!
-" Don't judge me..  I wasn't able to get this to work any other way...  I need help
-syn match   pythonBuiltInMethod         /\.\zsgetMessage\ze(/
+" We are just going to capture with the '.' then color just the '.' at the end.
+syn match   pythonBuiltInMethod         /\.getMessage\ze(/
+syn match   pythonBuiltInMethod         /\.usesTime\ze(/
+syn match   pythonBuiltInMethod         /\.format\(Time\|Exception\|Message\)\?\ze(/
 
 " formatStack was dfined inside of class Formatter
 syn keyword pythonBuiltInMethod         .formatStack
