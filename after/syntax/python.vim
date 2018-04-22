@@ -54,7 +54,7 @@ syn keyword pythonBuiltInMethod         .formatHeader .formatFooter .filter .add
 syn keyword pythonBuiltInMethod         .acquire .release .setLevel .emit .handle .setFormatter .flush .close
 
 " handleError was defined inside of class Handler
-syn keyword pythonBuiltIntMethod        .handleError
+syn keyword pythonBuiltInMethod        .handleError
 
 " append was defineind inside of class PlaceHolder
 " getLogger was defineind inside of class Manager
