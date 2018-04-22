@@ -29,7 +29,12 @@ syn keyword pythonBuiltInFunction       setLoggerClass getLoggerClass basicConfi
 " format was defiend inside of class PercentStyle          NOTE:  format is also a different color in the source on git
 " formatException was defined inside of class Formatter
 " formatMessage was defiend inside of class Formatter
-syn keyword pythonBuiltInMethod         .getMessage .usesTime .format .formatTime .formatException .formatMessage
+syn keyword pythonBuiltInMethod         .getMessage .usesTime .formatTime .formatException .formatMessage
+
+" May want to add some type of regex at the end to match '(', but I've been having issues trying to accomplish this
+" NOTE: The other pythonBuiltInMethods are not working, and I believe it's because of the prefixed '.', so I'm going to
+"   to match them with regex.
+syn match   pythonBuiltInMethod         /\.format/
 
 " formatStack was dfined inside of class Formatter
 syn keyword pythonBuiltInMethod         .formatStack
