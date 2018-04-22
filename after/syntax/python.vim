@@ -10,7 +10,7 @@ syn keyword pythonBuiltInConstants      CRITICAL FFATAL ERROR WARNING INFO DEBUG
 
 syn keyword pythonBuiltInClass          LogRecord PercentStyle StrFormatStyle StringTemplateStyle Formatter
 syn keyword pythonBuiltInClass          BufferingFormatter Filter Filterer Handler StreamHandler FilterHandler
-syn keyword pythonBuiltInClass          PlaceHolder Manager Logger RootLogger LoggerAdapter
+syn keyword pythonBuiltInClass          PlaceHolder Manager Logger RootLogger LoggerAdapter List Tuple Dict
 
 syn keyword pythonBuiltInFunction       getLevelName addLevelName setLogRecordFFactory getLogRecordFactory makeLogRecord
 
