@@ -97,3 +97,4 @@ hi link pythonBuiltInFunction   function
 hi link pythonBuiltInMethod     method
 hi link pythonParens            symParens
 hi link pythonBraces            symBraces
+hi link pythonBuiltInConstants  constant
