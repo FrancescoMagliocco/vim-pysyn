@@ -33,7 +33,7 @@ syn keyword pythonBuiltInFunction       setLoggerClass getLoggerClass basicConfi
 
 " May want to add some type of regex at the end to match '(', but I've been having issues trying to accomplish this
 " This is probablyu going to break...
-syn match   pythonBuiltInMethod         /\.[(get(Message|_name))(format)]+/
+syn match   pythonBuiltInMethod         /\.(get(Message|_name))(format)/
 
 " formatStack was dfined inside of class Formatter
 syn keyword pythonBuiltInMethod         .formatStack
