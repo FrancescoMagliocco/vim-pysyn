@@ -35,7 +35,7 @@ syn keyword pythonBuiltInFunction       setLoggerClass getLoggerClass basicConfi
 " TODO: Use a more efficienty regex match
 " HELP: I need help here!
 " Don't judge me..  I wasn't able to get this to work any other way...  I need help
-syn match   pythonBuiltInMethod         /\.\(format\|getMessage\)/
+syn match   pythonBuiltInMethod         /\.\(\(get\(Message\)\)\?\|format\(Time\|Exception\|Message\)\?\)/
 
 " formatStack was dfined inside of class Formatter
 syn keyword pythonBuiltInMethod         .formatStack
