@@ -34,7 +34,7 @@ syn match   pythonBuiltInMethod         /\.add\(Filter\|Handler\)\ze(/
 syn match   pythonBuiltInMethod         /\.\(filter\|acquire\|release\|emit\|flush\|close\|append\|error\)\ze(/
 syn match   pythonBuiltInMethod         /\.\(usesTime\|createLock\|debug\|info\|warning\|exception\|critical\)\ze(/
 syn match   pythonBuiltInMethod         /\.handle\(Error\)\?\ze(/
-syn match   pythonBuiltInMethod         /\.log\za(/
+syn match   pythonBuiltInMethod         /\.log\ze(/
 syn match   pythonBuiltInMethod         /\.\(process\|manager\|name\)\ze(/
 syn match   pythonBuiltInMethod         /\.find\(Caller\)\ze(/
 syn match   pythonBuiltInMethod         /\.make\(Record\)\ze(/
