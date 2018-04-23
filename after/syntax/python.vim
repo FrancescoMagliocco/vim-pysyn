@@ -17,86 +17,32 @@ syn keyword pythonBuiltInFunction       getLevelName addLevelName setLogRecordFF
 " setLoggerClass was also defiend insidoe of class Manager
 " NOTE: getLogger, critical, error etc..  Are all also defined not in any class, does that make them a function?...
 "   If so, distinguish with matching .error etc for the methods
-syn keyword pythonBuiltInFunction       setLoggerClass getLoggerClass basicConfig
 
 
-" NOTE: Currenlty I am going to include '.' for each method to distinguish these from the functions
+syn match   pythonBuiltInFunction       /\b\(set\|get\)\LoggerClss\ze(/
+syn match   pythonBuiltInFunction       /\bbasicConfig\ze(/
+
 " TODO: REWORD EVERYTHING SO IT MAKES SENSE
 
 
-" getMessage was defined inside of class LogRecord
-" usesTime was defined inside of class PercentStyle
-" format was defiend inside of class PercentStyle          NOTE:  format is also a different color in the source on git
-" formatException was defined inside of class Formatter
-" formatMessage was defiend inside of class Formatter
-"syn keyword pythonBuiltInMethod         .getMessage .usesTime .formatTime .formatException .formatMessage
-
-" May want to add some type of regex at the end to match '(', but I've been having issues trying to accomplish this
-" TODO: Use a more efficienty regex match
-" HELP: I need help here!
-" We are just going to capture with the '.' then color just the '.' at the end.
-syn match   pythonBuiltInMethod         /\.getMessage\ze(/
-syn match   pythonBuiltInMethod         /\.usesTime\ze(/
-syn match   pythonBuiltInMethod         /\.format\(Time\|Exception\|Message\)\?\ze(/
-
-" formatStack was dfined inside of class Formatter
-syn keyword pythonBuiltInMethod         .formatStack
-
-" formatHeader was defiend inside of class BufferingFormatter
-" formatFooter was defined inside of class BufferingFormatter
-" filter was defined inside of class FIlter                 NOTE: filter as had a different color  in source on git
-" addFilter was defined inside of class Filterer
-" get_name was defined inside of class Handler
-" set_name was defined inside of class Handler
-" createLock was defined insidoe of class Handler
-syn keyword pythonBuiltInMethod         .formatHeader .formatFooter .filter .addFilter .get_name .set_name .createLock
-
-" acquire was deinfed i nside of class Handler
-" release was defined insideo of class Handler
-" setLevel was defined inside of class Handler
-" emit was defineind insdie of class Handler
-" handle was defineind inside of class Handler
-" setFormatter wa s defined inisode of class Handler
-" flush was defineind insdie of class Handler
-" close was defineind inside of class Handler
-syn keyword pythonBuiltInMethod         .acquire .release .setLevel .emit .handle .setFormatter .flush .close
-
-" handleError was defined inside of class Handler
-syn keyword pythonBuiltInMethod         .handleError
-
-" append was defineind inside of class PlaceHolder
-" getLogger was defineind inside of class Manager
-" setLogRecordFactory was defined inside of class Manager
-" debug was definend inside of class LOgger
-" info was definedn insideo fo class Logger
-" warning was defined inside of class Logger
-" error was defined inside of class Logger
-" exception was defined inside of class Logger
-syn keyword pythonBuiltInMethod         .append .getLogger .setLogRecordFactory .debug .info .warning .error .exception
-
-" critical was defined inside of claass Logger
-syn keyword pythonBuiltInMethod         .critical
-
-" log was sefined inside of class Logger
-" findCaller was defined inside of class Logger
-" makeRecord was defined inside of class Logger
-" addHandler was defined inside of class Logger
-" removeHandler was defined insidoe of class Logger
-" callHandlers was defined inside of class Logger
-syn keyword pythonBuiltInMethod         .log .findCaller .makeRecord .addHandler .removeHandler .callHandlers
-
-" getEffectiveLevel was defined inside of class Logger
-" isEnabeldFor was defined insidoe of class Logger
-" getChild was definend inside of class Logger
-" process was defined inside of class LoggerAdapter
-" hasHandlers was defined inside of class LoggerAdapter
-" manager was defined inside of class LoggerAdapter
-" name was defineind inside of class LoggerAdapter
-syn keyword pythonBuiltInMethod         .getEffectiveLevel .isEnabledFor .getChild .process .hasHandlers .manager .name
-
-
-"syn match pythong\vstr\ze\([^)]*\)
-"
+" We are just going to include '.' in the match so we can differentiate methods from functions, then we will colors all
+" the '.' at the end appropriately.
+syn match   pythonBuiltInMethod         /\.get\(Message\|_name\|EffectiveLevel\|Child\|Logger\)\ze(/
+syn match   pythonBuiltInMethod         /\.set\(_name\|Level\|Formatter\|LogRecordFactory\)\ze(/
+syn match   pythonBuiltInMethod         /\.format\(Time\|Exception\|Message\|Stack\|Header\|Footer\)\?\ze(/
+syn match   pythonBuiltInMethod         /\.add\(Filter\|Handler\)\ze(/
+syn match   pythonBuiltInMethod         /\.\(filter\|acquire\|release\|emit\|flush\|close\|append\|error\)\ze(/
+syn match   pythonBuiltInMethod         /\.\(usesTime\|createLock\|debug\|info\|warning\|exception\|critical\)\ze(/
+syn match   pythonBuiltInMethod         /\.handle\(Error\)\?\ze(/
+syn match   pythonBuiltInMethod         /\.log\za(/
+syn match   pythonBuiltInMethod         /\.\(process\|manager\|name\)\ze(/
+syn match   pythonBuiltInMethod         /\.find\(Caller\)\ze(/
+syn match   pythonBuiltInMethod         /\.make\(Record\)\ze(/
+syn match   pythonBuiltInMethod         /\.is\(EnabledFor\)\ze(/
+syn match   pythonBuiltInMethod         /\.has\(Handlers\)\ze(/
+syn match   pythonBuiltInMethod         /\.remove\(Handler\)\ze(/
+syn match   pythonBuiltInMethod         /\.call\(Handlers\)\ze(/
+syn match   pythonBuiltInMethod         /\.basicConfig\ze(/
 
 hi link pythonFunction          function
 hi link pythonType              type
