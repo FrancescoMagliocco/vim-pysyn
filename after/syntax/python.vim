@@ -8,7 +8,6 @@ syn keyword pythonType          None bool int long float str tuple list dict
 
 syn keyword pythonBuiltInConstants      CRITICAL FFATAL ERROR WARNING INFO DEBUG NOSET BASIC_FORMAT
 
-
 " Classes should be highlighted first so they don't interfere by matching inside of functions.
 
 " I'm really proud of this.  Don't ask me why..
