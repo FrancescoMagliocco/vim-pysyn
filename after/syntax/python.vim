@@ -19,8 +19,8 @@ syn keyword pythonBuiltInFunction       getLevelName addLevelName setLogRecordFF
 "   If so, distinguish with matching .error etc for the methods
 
 
-syn match   pythonBuiltInFunction       /\*\b\(set\|get\)\LoggerClass\ze(/
-syn match   pythonBuiltInFunction       /\*\bbasicConfig\ze(/
+syn match   pythonBuiltInFunction       /*\b\(set\|get\)\LoggerClass\ze(/
+syn match   pythonBuiltInFunction       /*\bbasicConfig\ze(/
 
 " TODO: REWORD EVERYTHING SO IT MAKES SENSE
 
