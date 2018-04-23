@@ -57,7 +57,7 @@ syn match   pythonParens        /[()]/
 syn match   pythonBraces        /[\[\]]/
 
 " This may not work.  
-syn match   pythonPlusGreater   /[+>]/
+syn match   pythonPlusGreater   /\<[+>]/
 
 
 hi link pythonBuiltInConstant           constant
