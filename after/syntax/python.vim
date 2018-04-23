@@ -13,9 +13,8 @@ syn keyword pythonBuiltInConstants      CRITICAL FFATAL ERROR WARNING INFO DEBUG
 
 " I'm really proud of this.  Don't ask me why..
 syn match   pythonBuiltInClass          /\<\(Filter\)\(er\)\?\>/
-
-" So this does not work.  Maybe if I escape the '{}'
-syn match   pythonBuiltInClass          /\<\(Root\)\?Logger\(Adapter\)\?\>/
+syn match   pythonBuiltInClass          /\<RootLogger\>/
+syn match   pythonBuiltInClass          /\<Logger\(Adapter\)\?\>/
 syn match   pythonBuiltInClass          /\<\(Stream\|Filter\)\?Handler\>/
 syn match   pythonBuiltInClass          /\<\(LogRecord\|PlaceHolder\|Manager\)\>/
 syn match   pythonBuiltInClass          /\<\(Buffering\)\?Formatter\>/
@@ -38,7 +37,7 @@ syn match   pythonBuiltInFunction       /\<basicConfig\ze(/
 "   the '.', highlight then just highlight over it again..
 " We are just going to include '.' in the match so we can differentiate methods from functions, then we will colors all
 "   the '.' at the end appropriately.
-syn match   pythonBuiltInMethod         /\.\zsget\(Message\|_name\|EffectiveLevel\|Child\|Logger\)\>/
+syn match   pythonBuiltInMethod         /\.get\(Message\|_name\|EffectiveLevel\|Child\|Logger\)\ze(/
 syn match   pythonBuiltInMethod         /\.set\(_name\|Level\|Formatter\|LogRecordFactory\)\ze(/
 syn match   pythonBuiltInMethod         /\.format\(Time\|Exception\|Message\|Stack\|Header\|Footer\)\?\ze(/
 syn match   pythonBuiltInMethod         /\.add\(Filter\|Handler\)\ze(/
