@@ -11,10 +11,11 @@ syn keyword pythonBuiltInConstants      CRITICAL FFATAL ERROR WARNING INFO DEBUG
 
 " Classes should be highlighted first so they don't interfere by matching inside of functions.
 
-syn match   pythonBuiltInClass          /Filter\(er\)\?/
+" /Filter\(er\)\?/ will match Filter in Filtere..  I don't want that.
+syn match   pythonBuiltInClass          /\(Filter\)\(er\)\?\>/
 
-" I've got no idea if this will work or not...
-syn match   pythonBuiltInClass          /Root\?\Logger{1}Adapter\?/
+" So this does not work.  Maybe if I escape the '{}'
+syn match   pythonBuiltInClass          /Root\?\Logger\{1\}Adapter\?/
 syn match   pythonBuiltInClass          /\(Stream\|Filter\)\?Handler/
 syn match   pythonBuiltInClass          /LogRecord\|PlaceHolder\|Manager/
 syn match   pythonBuiltInClass          /\(Buffering\)\?Formatter/
