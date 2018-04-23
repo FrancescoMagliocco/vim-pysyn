@@ -62,10 +62,13 @@ hi link pythonBuiltInConstant           constant
 hi link pythonBuiltInClass              class
 hi link pythonBuiltInCollectionClass    pythonBuiltInClass
 hi link pythonFunction                  function
-hi link pythonType              type
-hi link pythonEqual             symPunctEqual
-hi link pythonBuiltInFunction   function
-hi link pythonBuiltInMethod     method
-hi link pythonParens            symParens
-hi link pythonBraces            symBraces
+hi link pythonType                      type
+hi link pythonEqual                     symPunctEqual
+hi link pythonBuiltInFunction           function
+hi link pythonBuiltInMethod             method
+hi link pythonParens                    symParens
+hi link pythonBraces                    symBraces
 hi link pythonPlus                      symPlusGreater
+
+" May change this to some yellow
+hi link pythonQuotes                    special
