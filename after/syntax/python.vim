@@ -56,9 +56,7 @@ syn match   pythonEqual         /=/
 syn match   pythonParens        /[()]/
 syn match   pythonBraces        /[\[\]]/
 
-" This may not work.  
-syn match   pythonPlusGreater   /\<[+>]/
-
+syn match   pythonPlus          /+/
 
 hi link pythonBuiltInConstant           constant
 hi link pythonBuiltInClass              class
@@ -70,3 +68,4 @@ hi link pythonBuiltInFunction   function
 hi link pythonBuiltInMethod     method
 hi link pythonParens            symParens
 hi link pythonBraces            symBraces
+hi link pythonPlus                      symPlusGreater
