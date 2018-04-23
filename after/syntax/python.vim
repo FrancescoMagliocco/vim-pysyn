@@ -11,15 +11,15 @@ syn keyword pythonBuiltInConstants      CRITICAL FFATAL ERROR WARNING INFO DEBUG
 
 " Classes should be highlighted first so they don't interfere by matching inside of functions.
 
-" /Filter\(er\)\?/ will match Filter in Filtere..  I don't want that.
-syn match   pythonBuiltInClass          /\(Filter\)\(er\)\?\>/
+" I'm really proud of this.  Don't ask me why..
+syn match   pythonBuiltInClass          /\<\(Filter\)\(er\)\?\>/
 
 " So this does not work.  Maybe if I escape the '{}'
-syn match   pythonBuiltInClass          /Root\?\Logger\{1\}Adapter\?/
-syn match   pythonBuiltInClass          /\(Stream\|Filter\)\?Handler/
-syn match   pythonBuiltInClass          /LogRecord\|PlaceHolder\|Manager/
-syn match   pythonBuiltInClass          /\(Buffering\)\?Formatter/
-syn match   pythonBuiltInClass          /\(Percent\|StrFormat\|StringTemplate\)Style/
+syn match   pythonBuiltInClass          /\<\(Root\)\?Logger\(Adapter\)\?\>/
+syn match   pythonBuiltInClass          /\<\(Stream\|Filter\)\?Handler\>/
+syn match   pythonBuiltInClass          /\<\(LogRecord\|PlaceHolder\|Manager\)\>/
+syn match   pythonBuiltInClass          /\<\(Buffering\)\?Formatter\>/
+syn match   pythonBuiltInClass          /\<\(Percent\|StrFormat\|StringTemplate\)Style\>/
 
 " Lets have these set to a different highlight group, just for customizability.
 syn match   pythonBuiltInCollectionTypeClass          /\<\(Dict\|List\|Tuple\)\ze\[/
@@ -38,7 +38,7 @@ syn match   pythonBuiltInFunction       /\<basicConfig\ze(/
 "   the '.', highlight then just highlight over it again..
 " We are just going to include '.' in the match so we can differentiate methods from functions, then we will colors all
 "   the '.' at the end appropriately.
-syn match   pythonBuiltInMethod         /\.get\(Message\|_name\|EffectiveLevel\|Child\|Logger\)\ze(/
+syn match   pythonBuiltInMethod         /\.\zsget\(Message\|_name\|EffectiveLevel\|Child\|Logger\)\>/
 syn match   pythonBuiltInMethod         /\.set\(_name\|Level\|Formatter\|LogRecordFactory\)\ze(/
 syn match   pythonBuiltInMethod         /\.format\(Time\|Exception\|Message\|Stack\|Header\|Footer\)\?\ze(/
 syn match   pythonBuiltInMethod         /\.add\(Filter\|Handler\)\ze(/
