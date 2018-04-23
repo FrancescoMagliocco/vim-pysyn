@@ -1,32 +1,39 @@
 syn keyword pythonStatement     return continue def
-syn keyword pythonType          None bool int long float str tuple list dict
 syn keyword pythonFunction      abs isinstance
-syn match   pythonEqual         /=/
-syn match   pythonParens        /[()]/
-syn match   pythonBraces        /[\[\]]/
 "syn match   pythonPlus          /+/
+
+" Types should be highlighted before other shit, that way parts of over highlights aren't highlighted over.  (Not sure
+"   if that's even a thing that happens..)
+syn keyword pythonType          None bool int long float str tuple list dict
 
 syn keyword pythonBuiltInConstants      CRITICAL FFATAL ERROR WARNING INFO DEBUG NOSET BASIC_FORMAT
 
+
+" Classes should be highlighted first so they don't interfere by matching inside of functions.
 syn keyword pythonBuiltInClass          LogRecord PercentStyle StrFormatStyle StringTemplateStyle Formatter
 syn keyword pythonBuiltInClass          BufferingFormatter Filter Filterer Handler StreamHandler FilterHandler
 syn keyword pythonBuiltInClass          PlaceHolder Manager Logger RootLogger LoggerAdapter List Tuple Dict
 
-syn keyword pythonBuiltInFunction       getLevelName addLevelName setLogRecordFFactory getLogRecordFactory makeLogRecord
+" Lets have these set to a different highlight group, just for customizability.
+syn match   pythonBuiltInCollectionTypeClass          /\<\(Dict\|List\|Tuple\)\ze\[/
 
 " setLoggerClass was also defiend insidoe of class Manager
 " NOTE: getLogger, critical, error etc..  Are all also defined not in any class, does that make them a function?...
 "   If so, distinguish with matching .error etc for the methods
 
+syn match   pythonBuiltInFunction       /\<make\(LogRecord\)\ze(/
 
-syn match   pythonBuiltInFunction       /\<\(set\|get\)LoggerClass\ze(/
+" May think this over because it seems like something could go terribly wrong..
+syn match   pythonBuiltInFucntion       /\<\(get\|add\)\(LevelName\)\ze(/
+syn match   pythonBuiltInFunction       /\<\(set\|get\)\(LoggerClass\|LogRecordFactory\)\ze(/
 syn match   pythonBuiltInFunction       /\<basicConfig\ze(/
 
 " TODO: REWORD EVERYTHING SO IT MAKES SENSE
 
-
+" TODO: Want to somehow incorporate \zs after \. so that way the '.' is not highlighted.  Seems inefficient to include
+"   the '.', highlight then just highlight over it again..
 " We are just going to include '.' in the match so we can differentiate methods from functions, then we will colors all
-" the '.' at the end appropriately.
+"   the '.' at the end appropriately.
 syn match   pythonBuiltInMethod         /\.get\(Message\|_name\|EffectiveLevel\|Child\|Logger\)\ze(/
 syn match   pythonBuiltInMethod         /\.set\(_name\|Level\|Formatter\|LogRecordFactory\)\ze(/
 syn match   pythonBuiltInMethod         /\.format\(Time\|Exception\|Message\|Stack\|Header\|Footer\)\?\ze(/
@@ -44,12 +51,22 @@ syn match   pythonBuiltInMethod         /\.remove\(Handler\)\ze(/
 syn match   pythonBuiltInMethod         /\.call\(Handlers\)\ze(/
 syn match   pythonBuiltInMethod         /\.basicConfig\ze(/
 
-hi link pythonFunction          function
+" These should be highlighted after everything else...  Actually this could be stupid..
+syn match   pythonEqual         /=/
+syn match   pythonParens        /[()]/
+syn match   pythonBraces        /[\[\]]/
+
+" This may not work.  
+syn match   pythonPlusGreater   /\<\(+\|>\)\>/
+
+
+hi link pythonBuiltInConstant           constant
+hi link pythonBuiltInClass              class
+hi link pythonBuiltInCollectionClass    pythonBuiltInClass
+hi link pythonFunction                  function
 hi link pythonType              type
 hi link pythonEqual             symPunctEqual
 hi link pythonBuiltInFunction   function
 hi link pythonBuiltInMethod     method
 hi link pythonParens            symParens
 hi link pythonBraces            symBraces
-hi link pythonBuiltInConstants  constant
-hi link pythonBuiltInClass      class
