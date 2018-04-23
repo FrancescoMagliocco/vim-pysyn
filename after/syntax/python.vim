@@ -10,14 +10,19 @@ syn keyword pythonBuiltInConstants      CRITICAL FFATAL ERROR WARNING INFO DEBUG
 
 
 " Classes should be highlighted first so they don't interfere by matching inside of functions.
-syn keyword pythonBuiltInClass          LogRecord PercentStyle StrFormatStyle StringTemplateStyle Formatter
-syn keyword pythonBuiltInClass          BufferingFormatter Filter Filterer Handler StreamHandler FilterHandler
-syn keyword pythonBuiltInClass          PlaceHolder Manager Logger RootLogger LoggerAdapter List Tuple Dict
+
+syn match   pythonBuiltInClass          /Filter\(er\)\?/
+
+" I've got no idea if this will work or not...
+syn match   pythonBuiltInClass          /Root\?\Logger{1}Adapter\?/
+syn match   pythonBuiltInClass          /\(Stream\|Filter\)\?Handler/
+syn match   pythonBuiltInClass          /LogRecord\|PlaceHolder\|Manager/
+syn match   pythonBuiltInClass          /\(Buffering\)\?Formatter/
+syn match   pythonBuiltInClass          /\(Percent\|StrFormat\|StringTemplate\)Style/
 
 " Lets have these set to a different highlight group, just for customizability.
 syn match   pythonBuiltInCollectionTypeClass          /\<\(Dict\|List\|Tuple\)\ze\[/
 
-" setLoggerClass was also defiend insidoe of class Manager
 " NOTE: getLogger, critical, error etc..  Are all also defined not in any class, does that make them a function?...
 "   If so, distinguish with matching .error etc for the methods
 
@@ -27,8 +32,6 @@ syn match   pythonBuiltInFunction       /\<make\(LogRecord\)\ze(/
 syn match   pythonBuiltInFucntion       /\<\(get\|add\)\(LevelName\)\ze(/
 syn match   pythonBuiltInFunction       /\<\(set\|get\)\(LoggerClass\|LogRecordFactory\)\ze(/
 syn match   pythonBuiltInFunction       /\<basicConfig\ze(/
-
-" TODO: REWORD EVERYTHING SO IT MAKES SENSE
 
 " TODO: Want to somehow incorporate \zs after \. so that way the '.' is not highlighted.  Seems inefficient to include
 "   the '.', highlight then just highlight over it again..
